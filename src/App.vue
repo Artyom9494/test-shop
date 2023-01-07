@@ -1,6 +1,16 @@
 <template>
   <div class="puge">
+
     <Header></Header>
+
+    <form action="" >
+      <h2>Add product</h2>
+      <input type="text" class="input" placeholder="barcode">
+      <input type="text" class="input" placeholder="price">
+      <input type="text" class="input" placeholder="name product">
+      <button class="addButt">addProduct</button>
+    </form>
+
     <div class="wrrap">
       <div v-for="proData in productData" class="dataBlock">
         <span>Баркод: {{proData.barcode}}</span>
@@ -8,7 +18,9 @@
         <p>Наименование: {{proData.price}}</p>  
       </div>
     </div>
+
     <Footer></Footer>
+
   </div>
 </template>
 
@@ -69,5 +81,26 @@ export default {
 .wrrap{
   overflow: hidden;
   height: 91vh;
+}
+form{
+  padding: 5px;
+}
+.input{
+  outline: none;
+  margin: 3px;
+  padding: 2px;
+  border: none;
+  border-bottom: solid 2px #2c3e50;
+}
+.input:focus{
+  border-bottom: solid 2px #1f8fff;
+}
+.addButt{
+  padding: 4px;
+  border: none;
+  border-radius: 4px;
+  background:rgb(41, 41, 255);
+  color:aliceblue;
+  font-weight: 600;
 }
 </style>
