@@ -1,6 +1,6 @@
-# test-shop
+# test-shop 
 
-## Project setup
+## VUE Project setup
 ```
 npm install
 ```
