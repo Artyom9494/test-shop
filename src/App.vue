@@ -3,12 +3,16 @@
 
     <Header></Header>
 
-    <form action="" >
+    <form action="" @submit.prevent>
       <h2>Add product</h2>
-      <input type="text" class="input" placeholder="barcode">
-      <input type="text" class="input" placeholder="price">
-      <input type="text" class="input" placeholder="name product">
-      <button class="addButt">addProduct</button>
+      <input v-bind:value="barcode"  @input="barcode = $event.target.value" 
+      type="text" class="input" placeholder="barcode">
+      <input v-bind:value="price" @input="price = $event.target.value"
+      type="text" class="input" placeholder="price">
+      <input v-bind:value="name" @input="name =$event.target.value"
+      type="text" class="input"  placeholder="name product">
+
+      <button @click="createProduct" class="addButt">addProduct</button>
     </form>
 
     <div class="wrrap">
@@ -39,12 +43,26 @@ export default {
      productData: [
       {id:1 , barcode: 80000365647, price: 43, name: "Doshic"},
       {id:2 , barcode: 80000261243, price: 423, name: "shic"},
-      {id:3 , barcode: 80000338798, price: 343, name: "Dos"}
-     ]
+      {id:3 , barcode: 80000338798, price: 343, name: "Dos"},
+     ],
+     barcode: "",
+     price: "",
+     name: ""
     }
   },
   methods: {
-    
+    createProduct() {
+      const newProduct = {
+        id: Date.now(),
+        barcode: this.barcode,
+        price: this.price,
+        name: this.name
+      }
+      this.productData.push(newProduct);
+      this.barcode = "";
+      this.price = "";
+      this.name = "";
+    }
   }
 }
 </script>
